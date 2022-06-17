@@ -91,6 +91,7 @@ nav{
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
+  padding: 0 12px;
 }
 
 .nav__link--list{
@@ -369,3 +370,10 @@ footer{
   opacity: 1;
 }
 
+/*Mobiles*/
+
+@media (max-width: 768px) {
+  nav{
+    height: 68px;
+  }
+}

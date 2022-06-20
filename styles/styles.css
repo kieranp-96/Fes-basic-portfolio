@@ -27,6 +27,10 @@ a{
   position: relative;
 }
 
+i:hover{
+  opacity: 0.7;
+  transition: opacity 300ms ease;
+}
 .link__hover-effect:after {
   content: "";
   position: absolute;
@@ -67,6 +71,7 @@ li{
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 12px;
 }
 
 .text--purple{
@@ -123,7 +128,7 @@ nav{
   font-weight: bold;
 }
 
-/* ABout Me */
+/* About Me */
 
 #about__me{
   min-height: 100vh;
@@ -131,6 +136,22 @@ nav{
   flex-direction: column;
 }
 
+.wave{
+  display: inline-block;
+animation: animate-wave 500ms infinite ease-in-out;
+}
+
+@keyframes animate-wave {
+  0%{
+transform: rotate(0);
+  }
+  50%{
+    transform: rotate(30deg);
+  }
+  100%{
+    transform: rotate(0);
+  }
+}
 .about-me__info{
   display: flex;
   flex-direction: column;
@@ -152,7 +173,20 @@ nav{
   overflow: hidden;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 1);
   margin-bottom: 28px;
+  animation: animate-profile-picture 800ms 200ms backwards;
 }
+@keyframes animate-profile-picture{
+ 0%{
+  transform: scale(0);
+ } 
+ 80%{
+  transform: scale(1.1);
+ }
+100%{
+  transform: scale(1);
+}
+}
+
 .about-me__picture{
   width: 100%;
   /* improveing picture */
@@ -162,11 +196,32 @@ nav{
 
 .about-me__info--title{
   margin-bottom: 16px;
+  animation: fade-up 800ms 400ms backwards;
 }
 
 .about-me__info--para{
   font-size: 20px;
   margin-bottom: 28px;
+  animation: fade-up 800ms 600ms backwards;
+}
+
+.about-me__links{
+  font-size: 20px;
+  color: black;
+  padding: 0 16px;
+  animation: fade-up 800ms 800ms backwards;
+}
+
+@keyframes fade-up{
+  0%{
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100%{
+    opacity: 1;
+    transform:translateY(0) ;
+  }
 }
 
 .about-me__link{
@@ -183,8 +238,19 @@ nav{
 
 .about-me__image{
   width: 100%;
+  animation: fade-in 1200ms 800ms backwards ;
 }
 
+@keyframes fade-in {
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+  
+}
 /*LANGAUGES*/
 
 .language{
@@ -216,6 +282,7 @@ nav{
 
 .language__list{
   display: flex;
+  justify-content: center;
   width: 100%;
   flex-wrap: wrap;
 }
@@ -370,10 +437,62 @@ footer{
   opacity: 1;
 }
 
-/*Mobiles*/
+/*smart phones and tablets*/
 
 @media (max-width: 768px) {
   nav{
     height: 68px;
   }
+
+  h1{
+    font-size: 28px;
+  }
+
+  .about-me__info--para{
+    font-size: 18px;
+  }
+
+  .language{
+    width:(100% / 3);
+  }
+
+  .project__description--para{
+    font-size: 16px;
+  }
+  
+  .project__description{
+    left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/*smaller phones */
+@media (max-width: 768px) {
+
+.nav--link:not(:last-child) {
+ display: none;
+}
+
+.project__description{
+  padding: none;
+  left: 0%;
+  width: 100%;
+}
+.project__description--para{
+  display: none;
+}
+.project__description--links{
+  display: flex;
+  justify-content: center;
+}
+
+.project__description--title{
+  text-align: center;
+  font-size: 32px;
+  line-height: 1;
+}
+.project__description--subtitle{
+  text-align: center;
+  margin: 12px 0;
+}
 }
